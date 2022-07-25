@@ -1,22 +1,8 @@
-//El fs es file system
-const fs = require("fs");
-const base = 3;
+const { crearArchivo } = require("./helpers/multiplicar");
 
-console.log(`
-==============================
-         Tabla del: ${base}
-==============================
-`);
+const base = 4;
 
-let salida = "";
-
-for (let i = 1; i <= 10; i++) {
-  salida += `${base} x ${i} = ${base * i}\n`;
-}
-
-console.log(salida);
-
-fs.writeFile(`Tabla-${base}`, salida, (err) => {
-  if (err) throw err;
-  console.log(`Tabla-${base}.txt creado correctamente.`);
-});
+crearArchivo(base)
+  .then((nombreArchivo) => console.log(nombreArchivo, "creado"))
+  .catch((err) => console.log(err));
+;
