@@ -2,21 +2,23 @@
 const fs = require("fs");
 
 //Si le damos un valor a la variable de entrada, si no recibe algo va a tomarlo, en caso contrario tomará la variable que recibe
-const crearArchivo = async (base = 5) => {
+const crearArchivo = async (base = 5, listar = false) => {
   try {
-    console.log(`
-      ==============================
-               Tabla del: ${base}
-      ==============================
-      `);
-
     let salida = "";
 
     for (let i = 1; i <= 10; i++) {
       salida += `${base} x ${i} = ${base * i}\n`;
     }
 
-    console.log(salida);
+    if (listar) {
+      console.log(`
+        ==============================
+                 Tabla del: ${base}
+        ==============================
+        `);
+
+      console.log(salida);
+    }
 
     // fs.writeFile(`Tabla-${base}`, salida, (err) => {
     //   if (err) throw err;
