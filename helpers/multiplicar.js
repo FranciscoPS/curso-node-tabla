@@ -5,12 +5,13 @@ const colors = require("colors");
 
 
 //Si le damos un valor a la variable de entrada, si no recibe algo va a tomarlo, en caso contrario tomará la variable que recibe
-const crearArchivo = async (base = 5, listar = false) => {
+const crearArchivo = async (base = 5, listar = false, hasta = 10) => {
   try {
-    let salida = "";
+    let salida, consola = "";
 
-    for (let i = 1; i <= 10; i++) {
-      salida += `${base} ${'x'.blue} ${i} = ${base * i}\n`;
+    for (let i = 1; i <= hasta; i++) {
+      consola += `${base} ${'x'.blue} ${i} = ${base * i}\n`;
+      salida += `${base} x ${i} = ${base * i}\n`;
     }
 
     if (listar) {
@@ -20,7 +21,7 @@ const crearArchivo = async (base = 5, listar = false) => {
         ==============================
         `.green);
 
-      console.log(salida);
+      console.log(consola);
     }
 
     // fs.writeFile(`Tabla-${base}`, salida, (err) => {

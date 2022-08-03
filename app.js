@@ -11,8 +11,8 @@ console.clear();
 //const [, base = 5] = arg3.split("=");
 // console.log(base);
 
-const { base, listar } = argv;
+const { base, listar, hasta } = argv;
 
-crearArchivo(base, listar)
+crearArchivo(base, listar, hasta)
   .then((nombreArchivo) => console.log(nombreArchivo.rainbow, "creado"))
   .catch((err) => console.log(err));
