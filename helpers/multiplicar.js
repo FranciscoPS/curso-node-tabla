@@ -1,13 +1,16 @@
 //El fs es file system
 const fs = require("fs");
 
+const colors = require("colors");
+
+
 //Si le damos un valor a la variable de entrada, si no recibe algo va a tomarlo, en caso contrario tomará la variable que recibe
 const crearArchivo = async (base = 5, listar = false) => {
   try {
     let salida = "";
 
     for (let i = 1; i <= 10; i++) {
-      salida += `${base} x ${i} = ${base * i}\n`;
+      salida += `${base} ${'x'.blue} ${i} = ${base * i}\n`;
     }
 
     if (listar) {
@@ -15,7 +18,7 @@ const crearArchivo = async (base = 5, listar = false) => {
         ==============================
                  Tabla del: ${base}
         ==============================
-        `);
+        `.green);
 
       console.log(salida);
     }
