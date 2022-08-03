@@ -3,23 +3,25 @@ const fs = require("fs");
 
 const colors = require("colors");
 
-
 //Si le damos un valor a la variable de entrada, si no recibe algo va a tomarlo, en caso contrario tomará la variable que recibe
 const crearArchivo = async (base = 5, listar = false, hasta = 10) => {
   try {
-    let salida, consola = "";
+    let salida = "";
+    let consola = "";
 
     for (let i = 1; i <= hasta; i++) {
-      consola += `${base} ${'x'.blue} ${i} = ${base * i}\n`;
       salida += `${base} x ${i} = ${base * i}\n`;
+      consola += `${base} ${"x".green} ${i} = ${base * i}\n`;
     }
 
     if (listar) {
-      console.log(`
+      console.log(
+        `
         ==============================
                  Tabla del: ${base}
         ==============================
-        `.green);
+        `.green
+      );
 
       console.log(consola);
     }
@@ -30,7 +32,7 @@ const crearArchivo = async (base = 5, listar = false, hasta = 10) => {
     // });
 
     //La siguiente es otra forma de escribir archivos, al ser sincrono el código de abajo no se va a ejecutar si hay un error
-    fs.writeFileSync(`Tabla-${base}`, salida);
+    fs.writeFileSync(`./salida/tabla-${base}`, salida);
 
     return `Tabla-${base}.txt creado correctamente.`;
   } catch (err) {
